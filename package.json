@@ -1,0 +1,36 @@
+{
+  "name": "@vuepress-reco/vuepress-plugin-rss",
+  "version": "1.0.0",
+  "description": "RSS plugin only for vuepress-theme-reco.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint-ext": "eslint --ext .js,.vue ./",
+    "eslint-fix": "eslint --fix --ext .js,.vue ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuepress-reco/vuepress-plugin-rss.git"
+  },
+  "keywords": [
+    "vuepress-theme-reco",
+    "rss",
+    "vuepress"
+  ],
+  "author": "reco_luan <recoluan@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vuepress-reco/vuepress-plugin-rss/issues"
+  },
+  "homepage": "https://vuepress-theme-reco.recoluan.com",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.4.0",
+    "eslint-plugin-vue": "^5.2.3"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "fs-extra": "^5.0.0",
+    "rss": "^1.2.2"
+  }
+}
