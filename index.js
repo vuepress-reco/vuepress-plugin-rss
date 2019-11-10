@@ -8,16 +8,17 @@ module.exports = (options, ctx) => {
 
     generated () {
       const fs = require('fs-extra')
-      const { pages, sourceDir, outDir } = ctx
+      const { pages, outDir, themeConfig, siteConfig } = ctx
       const { filter = () => true, count = 20, site_url, copyright } = options
-      const siteData = require(path.resolve(sourceDir, '.vuepress/config.js'))
+      const year = themeConfig.startYear || new Date().getFullYear()
+      const author = themeConfig.author || siteConfig.title || 'reco_luan'
 
       const feed = new RSS({
-        title: siteData.title,
-        description: siteData.description,
+        title: siteConfig.title,
+        description: siteConfig.description,
         feed_url: `${site_url}/rss.xml`,
         site_url,
-        copyright: copyright || 'recoluan 2019',
+        copyright: copyright || `${author} ${year}`,
         language: 'en'
       })
 
@@ -30,9 +31,11 @@ module.exports = (options, ctx) => {
         .map(page => ({ ...page, date: new Date(page.frontmatter.date || '') }))
         .sort((a, b) => b.date - a.date)
         .map(page => ({
-          title: page.frontmatter.title,
+          title: page.title,
           description: page.excerpt,
           url: `${site_url}${page.path}`,
+          categories: page.frontmatter.categories,
+          author: page.frontmatter.author || themeConfig.author || siteConfig.title,
           date: page.date
         }))
         .slice(0, count)
