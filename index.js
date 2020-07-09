@@ -34,7 +34,7 @@ module.exports = (options, ctx) => {
           title: page.title,
           description: page.excerpt,
           url: `${site_url}${page.path}`,
-          categories: page.frontmatter.categories,
+          categories: page.frontmatter.categories || [],
           author: page.frontmatter.author || themeConfig.author || siteConfig.title,
           date: page.date
         }))
