@@ -1,6 +1,6 @@
 {
   "name": "@vuepress-reco/vuepress-plugin-rss",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "RSS plugin only for vuepress-theme-reco.",
   "main": "index.js",
   "scripts": {
